@@ -1,0 +1,33 @@
+<div class="row recent-posts appear-animation animated fadeInUpShorter appear-animation-visible" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="200" style="animation-delay: 200ms;">
+    {% set posts = blogPosts.posts %}
+    {% for post in posts %}
+    {% set image = post.featured_images.first %}
+    <div class="col-md-6 col-lg-3 mb-4 mb-lg-0">
+        <article>
+            {% set image = post.featured_images.first %}
+            {% if image %}
+            <div class="row">
+                <div class="col">
+                    <a href="{{ post.url }}" class="text-decoration-none">
+                        <img src="{{ image.getThumb(378, '270', 'crop') }}" class="img-fluid hover-effect-2 mb-3" alt="">
+                    </a>
+                </div>
+            </div>
+            {% endif %}
+            <div class="row">
+                <div class="col-auto pr-0">
+                    <div class="date">
+                        <span class="day bg-color-light text-color-dark font-weight-extra-bold">{{ post.published_at | strftime('%d') }}</span>
+                        <span class="month bg-color-light font-weight-semibold text-color-primary text-1">{{ post.published_at | strftime('%b') }}</span>
+                    </div>
+                </div>
+                <div class="col pl-1">
+                    <h4 class="line-height-3 text-4"><a href="{{ post.url }}" class="text-light">{{ post.title }}</a></h4>
+                    <p class="text-color-light line-height-5 opacity-6 pr-4 mb-1">{{ post.exerpt }}</p>
+                    <a href="{{ post.url }}" class="read-more text-color-light font-weight-semibold text-2">read more <i class="fas fa-chevron-right text-1 ml-1"></i></a>
+                </div>
+            </div>
+        </article>
+    </div>
+    {% endfor %}
+</div>

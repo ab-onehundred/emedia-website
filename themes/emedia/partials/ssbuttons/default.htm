@@ -1,0 +1,27 @@
+[viewBag]
+
+[ssbuttons]
+fa = "no"
+twitter = 1
+facebook = 1
+google+ = 0
+stumbleupon = 0
+linkedin = 1
+custom_order = 1
+order_twitter = 2
+order_facebook = 1
+order_google+ = 4
+order_stumbleupon = 5
+order_linkedin = 3
+==
+<div class="SocialSharingButtons">
+    {% for button in ssbuttons.property('buttons_order') %}
+        {% if(ssbuttons.property(button)) %}
+            <a href="{{ ssbuttons.property('buttons_parameters')[button]['href'] }}" title="{{ ssbuttons.property('buttons_parameters')[button]['title'] }}" target="_blank" class="{{ ssbuttons.property('buttons_parameters')[button]['class']['ssbuttons'] }}"><i class="fab fa-{{ ssbuttons.property('buttons_parameters')[button]['image'] }}"></i>&nbsp;&nbsp;{{ ssbuttons.property('buttons_parameters')[button]['label'] }}</a>
+        {% endif %}
+    {% endfor %}
+</div>
+
+{% if ssbuttons.property('js') %}
+    <script src="/plugins/martin/ssbuttons/assets/js/ssbuttons.js"></script>
+{% endif %}

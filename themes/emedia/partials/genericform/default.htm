@@ -1,0 +1,32 @@
+<form data-request="{{ __SELF__ }}::onFormSubmit" class="contact-form form-style-2">
+    {{ form_token() }}
+    <div id="{{ __SELF__ }}_forms_flash"></div>
+     <div class="form-row">
+        <div class="form-group col-lg-12">
+            <input type="text" value="" data-msg-required="Please enter your name." maxlength="100" class="form-control" name="name" id="name" placeholder="Your Name..." required>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-lg-6">
+            <input type="text" value="" data-msg-required="Please enter your email address." maxlength="100" class="form-control" name="email" id="email" placeholder="Your Email..." required>
+        </div>
+        <div class="form-group col-lg-6">
+            <input type="tel" value="" data-msg-required="Please enter your phone number." maxlength="100" class="form-control" name="phone" id="phone" placeholder="Your Phone..." required>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col mb-4">
+            <textarea maxlength="5000" data-msg-required="Please enter your message." rows="4" class="form-control" name="message" id="message" placeholder="Your Message..." required></textarea>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group">
+            {% partial '@recaptcha' %}
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col text-center">
+            <button id="simpleContactSubmitButton" type="submit" Class="btn btn-dark px-4 py-3">SUBMIT</button>
+        </div>
+    </div>
+</form>

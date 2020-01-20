@@ -1,0 +1,82 @@
+title = "Post"
+url = "/blog/post/:slug"
+layout = "default"
+is_hidden = 0
+child_of = "blog"
+hide_crumb = 0
+remove_crumb_trail = 0
+crumb_disabled = 0
+robot_index = "index"
+robot_follow = "follow"
+
+[blogPost]
+slug = "{{ :slug }}"
+categoryPage = "blog/category"
+
+[ssbuttons]
+fa = "maxcdn"
+twitter = 1
+facebook = 1
+google+ = 1
+stumbleupon = 1
+linkedin = 1
+order_twitter = 1
+order_facebook = 2
+order_google+ = 3
+order_stumbleupon = 4
+order_linkedin = 5
+==
+{% partial 'components/page-header' %}
+<div class="container py-4">
+    <div class="row">
+        <div class="col">
+            <div class="blog-posts single-post">
+                <article class="post post-large blog-single-post border-0 m-0 p-0">
+                	{% set image = post.featured_images.first %}
+                    {% if image %}
+                    <div class="post-image ml-0">
+                        <a href="{{ post.url }}">
+                            <img src="{{ image.getThumb(750, 410, 'crop') }}" class="img-fluid img-thumbnail img-thumbnail-no-borders rounded-0" alt="">
+                        </a>
+                    </div>
+                    {% endif %}
+                    <div class="post-date ml-0">
+                        <span class="day">{{ post.published_at | strftime('%d') }}</span>
+                        <span class="month">{{ post.published_at | strftime('%b') }}</span>
+                    </div>
+                    <div class="post-content ml-0">
+                        <h2 class="font-weight-bold"><a href="{{ post.url }}">{{ post.title }}</a></h2>
+                        <div class="post-meta">
+                            <span><i class="far fa-user"></i> By {{ post.user.login }}</span>
+                              {% if post.categories.count %}
+                                    <span><i class="far fa-folder"></i>{% for category in post.categories %}
+                                        <a href="{{ url('/news/category', {'seo':category.slug}) }}">{{ category.name }}</a>{% if not loop.last %},{% endif %}{% endfor %} </span>
+                                    {% endif %}
+                            <span><i class="far fa-comments"></i> <a href="#">12 Comments</a></span>
+                        </div>
+                       <div class="content">
+                       	 {{ post.content_html|raw }}
+                       </div>
+                        <div class="post-block mt-5 post-share">
+                            <h4 class="mb-3">Share this Post</h4>
+                     
+                      		{% partial 'ssbuttons/default' %}
+                     
+                        </div>
+                        <div class="post-block mt-4 pt-2 post-author">
+                            <h4 class="mb-3">Author</h4>
+                            <div class="img-thumbnail img-thumbnail-no-borders d-block pb-3">
+                                <a href="blog-post.html">
+                                    <img src="img/avatars/avatar.jpg" alt="">
+                                </a>
+                            </div>
+                            <p><strong class="name"><a href="#" class="text-4 pb-2 pt-2 d-block">{{ post.user.login }}</a></strong></p>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae. Sed dui lorem, adipiscing in adipiscing et, interdum nec metus. Mauris ultricies, justo eu convallis placerat, felis enim ornare nisi, vitae mattis nulla ante id dui. </p>
+                        </div>
+                     
+                    </div>
+                </article>
+            </div>
+        </div>
+    </div>
+</div>
