@@ -34,6 +34,13 @@ window.theme.fn = {
 
 };
 
+$('.custom-content-rotator').each(function(){
+	$(this).textRotator({
+		fadeSpeed: 500,
+		pauseSpeed: 5000
+	});
+});
+
 // Animate
 (function(theme, $) {
 

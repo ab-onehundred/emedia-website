@@ -5,30 +5,30 @@ description = "Default layout"
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="author" content="ZANACO Football Club">
+    <meta name="author" content="EMEDIA ZAMBIA">
     <meta name="description" content="{{ this.page.description }}">
     <meta name="theme-color" content="#0088CC">
     {% if this.page.id == 'post' %}
-    <title>{{ post.title }} | eMedia</title>
+    <title>{{ post.title }} | EMEDIA</title>
     {% set image = post.featured_images.first %}
-    <meta property="og:site_name" content="eMedia" />
-    <meta property="og:title" content="{{ post.title }} | eMedia" />
+    <meta property="og:site_name" content="EMEDIA" />
+    <meta property="og:title" content="{{ post.title }} | EMEDIA" />
     <meta property="og:url" content="{{ ''| page({ filter_slug:slug_var, filter_id:id_var }) }}" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="{{ post.title }} | eMedia" />
+    <meta name="twitter:title" content="{{ post.title }} | EMEDIA" />
     <meta name="twitter:description" content="{{ post.summary }}" />
     {% else %}
-    <title>{{ this.page.title }} | eMedia</title>
-    <meta property="og:site_name" content="eMedia" />
-    <meta property="og:title" content="{{ this.page.title }} | eMedia" />
+    <title>{{ this.page.title }} | EMEDIA</title>
+    <meta property="og:site_name" content="EMEDIA" />
+    <meta property="og:title" content="{{ this.page.title }} | EMEDIA" />
     <meta property="og:url" content="{{ ''| page({ filter_slug:slug_var, filter_id:id_var }) }}" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="{{ this.page.title }} | eMedia" />
+    <meta name="twitter:title" content="{{ this.page.title }} | EMEDIA" />
     <meta name="twitter:description" content="{{ this.page.description }}" />
     {% endif %}
     <meta name="keywords" content="Digital Agency, Web Design, Creative Agency" />
     <meta name="description" content="Designing Elegant Solutions for Zambian Businesses">
-    <meta name="author" content="eMedia">
+    <meta name="author" content="EMEDIA">
     <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
     <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, shrink-to-fit=no">
@@ -39,7 +39,8 @@ description = "Default layout"
     <link rel="stylesheet" href="{{ 'assets/vendor/simple-line-icons/css/simple-line-icons.min.css' | theme }}">
     <link rel="stylesheet" href="{{ ['assets/vendor/owl.carousel/assets/owl.carousel.min.css', 'assets/vendor/owl.carousel/assets/owl.theme.default.min.css'] |theme }}">
     <link rel="stylesheet" href="{{ 'assets/vendor/magnific-popup/magnific-popup.min.css' | theme }}">
-    <link rel="stylesheet" href="{{ ['assets/css/theme.css','assets/css/theme-elements.css','assets/css/theme-blog.css', 'assets/css/theme-shop.css'] | theme }}">
+    <link rel="stylesheet" href="{{ ['assets/css/theme.css','assets/css/theme-elements.css','assets/css/theme-blog.css'] | theme }}">
+    <link rel="stylesheet" href="{{ 'assets/css/custom.css' | theme}}">
     <link rel="stylesheet" href="{{ ['assets/vendor/rs-plugin/css/settings.css','assets/vendor/rs-plugin/css/layers.css', 'assets/vendor/rs-plugin/css/navigation.css'] | theme }}">
     <link rel="stylesheet" href="{{ 'assets/css/skins/default.css' | theme }}">
     <script src="{{ 'assets/vendor/modernizr/modernizr.min.js' | theme }}"></script>

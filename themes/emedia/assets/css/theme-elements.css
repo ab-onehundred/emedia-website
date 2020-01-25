@@ -10381,9 +10381,11 @@ html .scroll-to-top {
 	font-size: 0.8em;
 }
 
-html .scroll-to-top:hover {
+html .scroll-to-top:hover, html .scroll-to-top:focus  {
 	opacity: 1;
+	color: #fff;
 }
+
 
 html .scroll-to-top.visible {
 	opacity: 0.75;
